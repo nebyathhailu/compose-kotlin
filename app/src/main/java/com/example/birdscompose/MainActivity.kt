@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
             BirdsComposeTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "Janet",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
