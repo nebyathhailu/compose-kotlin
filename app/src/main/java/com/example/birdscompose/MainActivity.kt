@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.example.birdscompose.ui.theme.BirdsComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,29 +20,38 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             BirdsComposeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Janet",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                PhotoScreen(navController = rememberNavController(),
+                    screenNumber = 1,
+                    imageId = R.drawable.parrot,
+                    birdName = "Parrot")
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun PhotoScreenPreview(){
     BirdsComposeTheme {
-        Greeting("Android")
+        PhotoScreen(navController = rememberNavController(),
+            screenNumber = 1,
+            imageId = R.drawable.parrot,
+            birdName = "Parrot")
     }
 }
+//@Composable
+//fun Greeting(name: String, modifier: Modifier = Modifier) {
+//    Text(
+//        text = "Hello $name!",
+//        modifier = modifier
+//    )
+//}
+//
+//@Preview(showBackground = true)
+//@Composable
+//fun GreetingPreview() {
+//    BirdsComposeTheme {
+//        Greeting("Android")
+//    }
+//}
